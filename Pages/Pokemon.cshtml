@@ -1,0 +1,45 @@
+@page
+@model EeveeDex.Pages.PokemonModel
+@{
+    ViewData["Title"] = "Pokedex";
+}
+<link rel="stylesheet" href="css/pokemon.css">
+<script src="js/pokemon.js" defer></script>
+<div>
+    <h2>Pokédex</h2>
+    <div class="pokemon">
+        <div class="left">
+            <ul>
+                @foreach (System.Data.DataRow row in Model.Species.Rows)
+                    {
+                        var types = (row["types"] == DBNull.Value) 
+                            ? new string[0] 
+                            : row["types"].ToString().Split(',');
+
+
+                        <li class="pokemon-item"
+                            data-name="@row["name"]"
+                            data-number="@row["pokedex_number"]"
+                            data-classification="@row["classification"]"
+                            data-generation="@row["generation"]"
+                            data-image="@row["image_url"]"
+                            data-sound="@row["sound_url"]"
+                            data-types="@string.Join(",", types)">
+
+                            @if (row["image_url"] != DBNull.Value)
+                            {
+                                <img src="@row["image_url"]" alt="@row["name"]" class="left-image">
+                            }
+                            <span>@row["pokedex_number"]: @row["name"]</span>
+                        </li>
+                    }
+            </ul>
+        </div>
+        <div class="right" id="details">
+            <h2 id="poke-name">Click on a pokemon for details!</h2>
+            <div id="poke-types"></div>
+            <img id="poke-image" style="display:none;" />
+            <p id="poke-info"></p>
+        </div>
+    </div>
+</div>

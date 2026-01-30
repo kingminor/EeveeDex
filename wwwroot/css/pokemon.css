@@ -1,0 +1,43 @@
+.pokemon {
+    display: flex;
+    flex-direction: row;
+    .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+li:hover {
+    background-color: lightgray;
+}
+
+li > *{
+    display: inline;
+}
+
+.left-image {
+    width: 20%;
+}
+
+#poke-types {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.type {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background-color: lightgray;
+    
+}
