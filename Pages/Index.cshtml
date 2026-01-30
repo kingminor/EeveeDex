@@ -5,6 +5,24 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>Pokédex</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Classification</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (System.Data.DataRow row in Model.Species.Rows)
+            {
+                <tr>
+                    <td>@row["pokedex_number"]</td>
+                    <td>@row["name"]</td>
+                    <td>@row["classification"]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

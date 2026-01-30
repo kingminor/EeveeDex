@@ -1,7 +1,10 @@
+using EeveeDex.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<DbService>();
 
 var app = builder.Build();
 
