@@ -53,5 +53,8 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
+
+.idea/
+
 # Appsettings (yeah your not seeing my db info)
 appsettings*.json
